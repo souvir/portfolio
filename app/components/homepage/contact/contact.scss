@@ -1,0 +1,83 @@
+.hero-preview {
+  position: relative;
+  z-index: 0;
+  border-radius: 18px 18px 0 0;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero-preview-animation {
+  padding: 1px 1px 0;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.hero-preview-animation-line {
+  width: 40%; /* En pourcentage de la largeur de la div parente */
+  height: 40%; /* En pourcentage de la hauteur de la div parente */
+  position: absolute;
+  animation: hero-preview-animation-line 15s linear infinite;
+  bottom: -40%; /* Ajusté en pourcentage */
+  left: 0;
+  background-image: linear-gradient(
+    to top,
+    rgba(109, 46, 255, 0),
+    #7c3aed,
+    #ec4899,
+    #ffbd7a 99%,
+    rgba(255, 189, 122, 0) 100%
+  );
+  background-image: linear-gradient(
+    to top,
+    color(display-p3 0.4274509804 0.1803921569 1 / 0),
+    color(display-p3 0.4823529412 0.2784313725 0.737254902 / 0.3490196078),
+    color(display-p3 0.9960784314 0.5450980392 0.7333333333 / 0.6980392157),
+    color(display-p3 1 0.7411764706 0.4784313725 / 1) 99%,
+    color(display-p3 1 0.7411764706 0.4784313725 / 0) 100%
+  );
+}
+
+@keyframes hero-preview-animation-line {
+  0% {
+    transform: translateZ(0) translate(-50%);
+  }
+  20% {
+    transform: translateZ(0) translate(-50%, -250%);
+  }
+  21% {
+    transform: translateZ(0) translate(-50%, -250%) rotate(45deg);
+  }
+  30% {
+    transform: translateZ(0) translate(50%, -300%) rotate(90deg);
+  }
+  46% {
+    transform: translateZ(0) translate(140%, -300%) rotate(90deg);
+  }
+  47% {
+    transform: translateZ(0) translate(140%, -300%) rotate(135deg);
+  }
+  54% {
+    transform: translateZ(0) translate(200%, -250%) rotate(180deg);
+  }
+  72% {
+    transform: translateZ(0) translate(200%) rotate(180deg);
+  }
+  100% {
+    transform: translateZ(0) translate(200%) rotate(180deg);
+  }
+}
+
+.hero-preview-animation-line:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.hero-preview-animation-line:nth-child(3) {
+  animation-delay: 10s;
+}

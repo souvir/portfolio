@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: rgb(211, 216, 232);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: #0d1224;
+}
+
+#sticky-card-1 {
+  --index: 1;
+}
+
+#sticky-card-2 {
+  --index: 2;
+}
+
+#sticky-card-3 {
+  --index: 3;
+}
+
+#sticky-card-4 {
+  --index: 4;
+}
+
+.sticky-card {
+  // padding-top: calc(var(--index) * 2.5rem);
+  top: calc(var(--index) * 4rem);
+}
+
+canvas {
+  position: absolute;
+  z-index: -99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Status */
+
+$recruitmentStatus: rgb(220 38 38);
+
+.notification-status {
+  width: 0.75em;
+  height: 0.75em;
+  border-radius: 1em;
+  background: $recruitmentStatus;
+  box-shadow: 0 0 0.75em $recruitmentStatus;
+  display: inline-block;
+  margin-right: 0.75em;
+  animation: lightFlash 1s infinite;
+}
+
+@keyframes lightFlash {
+  49% {
+    background: $recruitmentStatus;
+    box-shadow: 0 0 0.5em $recruitmentStatus;
+  }
+  50% {
+    box-shadow: 0 0 0 transparent;
+    background: darken($recruitmentStatus, 30%);
+  }
+  70% {
+    box-shadow: 0 0 0 transparent;
+    background: darken($recruitmentStatus, 30%);
+  }
+  71% {
+    background: $recruitmentStatus;
+    box-shadow: 0 0 0.5em $recruitmentStatus;
+  }
+}

@@ -1,0 +1,117 @@
+@media (max-width: 900px) {
+  #terminal {
+    display: none;
+  }
+}
+
+#terminal {
+  .terminal-body {
+    height: 50vh;
+    padding: 1em;
+    min-height: 480px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .terminal-bar {
+    border-radius: 0 0 1em 1em;
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8em;
+
+    .bar {
+      flex-grow: 10;
+    }
+
+    .screen,
+    .name,
+    .battery,
+    .bar {
+      padding: 0.5em;
+    }
+
+    .screen {
+      border-bottom-left-radius: 1em;
+      padding-left: 1em;
+    }
+
+    .name {
+      border-bottom-right-radius: 1em;
+      padding-right: 1em;
+    }
+  }
+
+  .terminal-control {
+    .terminal-input {
+      .field {
+        .control.has-icons-left {
+          position: relative;
+
+          .icon {
+            height: auto;
+            width: auto;
+          }
+        }
+
+        .label {
+          margin-bottom: 0;
+        }
+
+        .input {
+          background: transparent;
+          border: none;
+          padding-top: 0;
+          padding-left: 1em;
+          font-family: monaco, Consolas, Lucida Console, monospace;
+          caret-color: transparent;
+          width: calc(100% - 16px);
+
+          &:hover,
+          &:active,
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+
+          &:focus {
+            & + .cursor {
+              display: inline-block;
+            }
+          }
+        }
+
+        .cursor {
+          display: none;
+          width: 0.5em;
+          height: 1.2em;
+          animation: flash 1s infinite;
+          position: absolute;
+          top: 0.1em;
+          left: 1em;
+          margin-left: 0.5em;
+        }
+      }
+    }
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+
+  59% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  81% {
+    opacity: 1;
+  }
+}
